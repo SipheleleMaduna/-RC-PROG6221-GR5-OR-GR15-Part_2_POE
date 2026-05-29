@@ -1,0 +1,103 @@
+﻿<Window x:Class="sphelele.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Chat Application"
+        Height="700"
+        Width="900"
+        WindowStartupLocation="CenterScreen"
+        Background="#FF5C5A5A">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <!-- Header -->
+            <RowDefinition Height="*"/>
+            <!-- Chat Area -->
+            <RowDefinition Height="70"/>
+            <!-- Input Area -->
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Grid Grid.Row="0" Background="#FF4A4A4A">
+            <TextBlock Text="Chat"
+                       FontSize="48"
+                       FontWeight="Bold"
+                       Foreground="White"
+                       TextAlignment="Center"
+                       VerticalAlignment="Center"/>
+        </Grid>
+
+        <!-- Chat Area -->
+        <ScrollViewer Grid.Row="1" 
+                      VerticalScrollBarVisibility="Auto"
+                      Background="#FFE8E8E8">
+            <StackPanel x:Name="chatPanel" 
+                        Margin="20"
+                        VerticalAlignment="Top">
+
+
+
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Input Area -->
+        <Border Grid.Row="2" 
+                Background="#FFFFFFFF" 
+                BorderBrush="#FFE0E0E0"
+                BorderThickness="0,1,0,0">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Text Input -->
+                <TextBox x:Name="MessageInput"
+                         Grid.Column="0"
+                         Height="45"
+                         VerticalAlignment="Center"
+                         Background="#FFF5F5F5"
+                         BorderBrush="#FFE0E0E0"
+                         BorderThickness="1"
+                        
+                         Padding="15,0,15,0"
+                         FontSize="14"
+                         Foreground="#333333"
+                         Text="Type your message here">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="22.5"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+
+                <!-- Send Button -->
+                <Button x:Name="SendButton"
+                        Grid.Column="1"
+                        Width="80"
+                        Height="45"
+                        Margin="10,0,0,0"
+                        Background="#FF4CAF50"
+                        Foreground="White"
+                        FontSize="14"
+                        FontWeight="SemiBold"
+                   
+                        Cursor="Hand"
+                        Click="SendButton_Click">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="22.5"/>
+                        </Style>
+                    </Button.Resources>
+                    <TextBlock Text="Send" 
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"/>
+                </Button>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
